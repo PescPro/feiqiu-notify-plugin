@@ -1,0 +1,53 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+
+  <f:entry>
+    <table>
+      <tr>
+        <td>
+          <f:entry title="飞秋用户名" field="userName">
+            <f:textbox value="${instance.feiQiuHost.userName}" />
+          </f:entry>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <f:entry title="机器名" field="pcName">
+            <f:textbox value="${instance.feiQiuHost.pcName}" />
+          </f:entry>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <f:entry title="机器MAC地址" field="mac">
+            <f:textbox value="${instance.feiQiuHost.mac}" />
+          </f:entry>
+        </td>
+      </tr>
+    </table>
+  </f:entry>
+
+  <f:entry>
+    <!-- Add feiQiuGroup repeat -->
+    <f:repeatable name="feiQiuGroups" var="feiQiuGroup" items="${instance.feiQiuGroups}">
+      <table class="center-align">
+        <tr>
+          <td>
+            <f:entry title="飞秋群号" field="groupNum">
+              <f:textbox value="${feiQiuGroup.groupNum}" />
+            </f:entry>
+          </td>
+          <td>
+            <f:entry title="" field="">
+              <div align="right"> <f:repeatableDeleteButton /> </div>
+            </f:entry>
+          </td>
+        </tr>
+      </table>
+    </f:repeatable>
+  </f:entry>
+  <f:entry title="消息通知内容" field="message">
+    <f:textarea />
+  </f:entry>
+</j:jelly>
