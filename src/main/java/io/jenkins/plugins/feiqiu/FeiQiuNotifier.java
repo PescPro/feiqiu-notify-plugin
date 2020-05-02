@@ -91,9 +91,9 @@ public class FeiQiuNotifier extends Notifier {
             msg += "编译成功！" + message;
         } else {
             msg += "编译失败了...";
-            msg += "jenkins地址:" + jobURL;
-        }
 
+        }
+        msg += "jenkins地址:" + jobURL;
 
         for (FeiQiuGroup feiQiuGroup : feiQiuGroups) {
             FeiqUtil.sendGroupMsg(msg,feiQiuGroup,feiQiuHost);
